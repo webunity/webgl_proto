@@ -1,0 +1,101 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #111;
+  overflow: hidden;
+}
+
+/* Full-screen centered container */
+#unity-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* dvh = dynamic viewport height: adapts when mobile URL bar shows/hides */
+#unity-canvas-wrapper {
+  position: relative;
+  width:  min(100vw, calc(100dvh * 9 / 16));
+  height: min(100dvh, calc(100vw * 16 / 9));
+  background: #231F20;
+  overflow: hidden;
+}
+
+#unity-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#unity-loading-bar {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: #231F20;
+  z-index: 10;
+}
+
+#unity-logo {
+  width: 120px;
+  height: 102px;
+  background: url('unity-logo-dark.png') no-repeat center;
+  background-size: contain;
+}
+
+#unity-progress-bar-empty {
+  width: 55%;
+  max-width: 220px;
+  height: 18px;
+  background: url('progress-bar-empty-dark.png') no-repeat center;
+  background-size: 100% 100%;
+}
+
+#unity-progress-bar-full {
+  width: 0%;
+  height: 18px;
+  background: url('progress-bar-full-dark.png') no-repeat center;
+  background-size: auto 100%;
+}
+
+/* Warning banner — pinned to top of 9:16 wrapper */
+#unity-warning {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: none;
+}
+
+#unity-warning > div {
+  padding: 8px 12px;
+  font-family: arial;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Fullscreen button — bottom-right corner */
+#unity-fullscreen-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  background: url('fullscreen-button.png') no-repeat center;
+  background-size: contain;
+  opacity: 0.6;
+  z-index: 5;
+  transition: opacity 0.2s;
+}
+
+#unity-fullscreen-button:hover { opacity: 1; }
